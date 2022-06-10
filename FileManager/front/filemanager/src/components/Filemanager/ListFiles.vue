@@ -94,6 +94,7 @@
           const file = this.files.files[i].file_name;
           switch (file.substr(file.lastIndexOf('.')+1, file.length)) {
             case 'jpeg':  this.files.files[i].icon_class = 'icon-image'; break;
+            case 'png':  this.files.files[i].icon_class = 'icon-image'; break;
             case 'jpg': this.files.files[i].icon_class = 'icon-image'; break;
             case 'mp3': this.files.files[i].icon_class = 'icon-music'; break;
             default: this.files.files[i].icon_class = 'icon-documents'; break;
