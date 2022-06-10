@@ -1,0 +1,138 @@
+body {
+  background-color: #177245;
+}
+
+h1 {
+  text-align: center;
+}
+
+.button {
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.6em + 3px);
+  margin-right: 5px;
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+
+.button:hover { 
+  background: rgb(53, 167, 110); 
+}
+
+.button:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+#buttonRemove {
+  background-color: rgb(226, 73, 73); 
+  box-shadow: 0 -3px rgb(188, 54, 27) inset;
+}
+
+#buttonBack {
+  padding: 5px;
+}
+
+.filemanager {
+  padding: 10px;
+  width: 80%;
+  left: 10%;
+  position: absolute;
+  border: 1px solid black;
+  background-color: lightblue;
+}
+
+.file {
+  border-top: 1px solid black;
+}
+
+.file:hover {
+  background-color: lightyellow;
+}
+
+.file > td {
+  cursor: pointer;
+}
+
+.path {
+  display: inline-block;
+  max-width: calc(100% - 40px);
+  width: 100%;
+  background-color: rgb(156, 207, 224);
+  border-bottom: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+}
+
+.pathLabel {
+  display: inline-block; 
+  position: relative; 
+  bottom: 8px;
+  height: 22px;
+  background-color: rgb(156, 207, 224);
+}
+
+.container > div {
+  margin-right: 10px;
+  display: inline-block;
+  width: 49%;
+}
+
+.container > div:last-child {
+  margin-right: 0;
+}
+
+.files_content {
+  height: 200px;
+  overflow: scroll;
+  margin: 5px 0 5px 0;
+}
+
+.table {
+  width: 100%;
+  background-color: rgb(156, 207, 224);
+}
+
+.icon-folder {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  width: 22px;
+  height: 22px;
+  background-image: url('/img/folder.png');
+  background-size: 100%;
+}
+
+.icon-image {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('/img/image.png');
+  background-size: 100%;
+}
+
+.icon-music {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('/img/music.png');
+  background-size: 100%;
+}
+
+.icon-documents {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background-image: url('/img/documents.png');
+  background-size: 100%;
+}
+
+
+
+
+
