@@ -1,10 +1,8 @@
 # FileManager
 FrontEnd (Настройка)
--
-FileManager/front/filemanager/
-npm i
-FrontEnd (Запуск)
--
+`cd FileManager/front/filemanager/` <br>
+`npm i`
+Запуск
 npm run serve
 
 BackEnd (Настройка)
