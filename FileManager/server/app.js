@@ -17,9 +17,16 @@ app.post("/getDir", (req, res) => {
     dir: [],
     files: []
   };
-  let current_path = `${path.resolve()}`;
+  let current_path = '';
   if (req.body.path) {
     current_path = `${req.body.path}`;
+  } else {
+    current_path = path.resolve().replace(/\\/g, '/');
+    console.log(current_path);
+    // for (let i = 0; i < current_path.length; i ++) {
+    //   if (current_path[i] == "\")
+    //   console.log(current_path[i]);
+    // }
   }
   new Promise ((resolve, reject) => {
     fs.readdir(current_path, async(err, files) => {

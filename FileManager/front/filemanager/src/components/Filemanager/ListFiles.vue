@@ -80,6 +80,7 @@
         if (path) {
           targetPath = path;
         }
+      
         axios.post('http://localhost:3000/getDir',{
           path: targetPath
         }).then((result) => {
