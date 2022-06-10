@@ -89,8 +89,10 @@ app.post('/copy', async(req, res) => {
         }
       })
     }
+    resolve();
+  }).then(() => {
+    res.send('ok');
   })
-  res.send('ok');
 });
 
 app.post('/move', (req, res) => {
