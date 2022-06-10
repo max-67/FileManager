@@ -17,11 +17,9 @@ app.post("/getDir", (req, res) => {
     dir: [],
     files: []
   };
-  let current_path = '';
+  let current_path = `${path.resolve()}`;
   if (req.body.path) {
     current_path = `${req.body.path}`;
-  } else {
-    current_path = path.resolve().replace(/\\/g, '/');
   }
   new Promise ((resolve, reject) => {
     fs.readdir(current_path, async(err, files) => {
@@ -73,26 +71,26 @@ app.post('/deleteFolder', (req, res) => {
         });
       }
     }
-    resolve();
-  }).then(() => {
-    res.send('ok');
-  });
+  })
+  res.send('ok');
 });
 
-app.post('/copy', (req, res) => {
+app.post('/copy', async(req, res) => {
   const fromPath = req.body.from;
   const toPath = req.body.to;
   const files = req.body.files;
-  for (let i = 0; i < files.length; i++) {
-    fs.access(`${toPath}/${files[i]}`, (err) => {
-      if (err) {
-        fs.copyFile(`${fromPath}/${files[i]}`, `${toPath}/${files[i]}`, err => {
-          if(err) throw err;
-       });
-      }
-    })
+  new Promise ((resolve, reject) => {
+    for (let i = 0; i < files.length; i++) {
+      fs.access(`${toPath}/${files[i]}`, async(err) => {
+        if (err) {
+          fs.copyFile(`${fromPath}/${files[i]}`, `${toPath}/${files[i]}`, err => {
+            if(err) throw err;
+         });
+        }
+      })
+    }
+  })
   res.send('ok');
-  }
 });
 
 app.post('/move', (req, res) => {
