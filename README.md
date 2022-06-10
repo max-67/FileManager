@@ -1,9 +1,9 @@
 # FileManager
-FrontEnd (Настройка)
+FrontEnd (Настройка) <br>
 `cd FileManager/front/filemanager/` <br>
 `npm i`
-Запуск
-npm run serve
+Запуск <br>
+`npm run serve`
 
 BackEnd (Настройка)
 -
