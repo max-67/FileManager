@@ -12,6 +12,15 @@ app.use(function(req, res, next) {
   next();
 });
 
+const logError = (err, message) => {
+  err.error = true;
+  if (err.message == null) {
+    err.message = message;
+  }
+  err.errormessage = message;
+  return err;
+};
+
 app.post("/getDir", (req, res) => {
   const obj = {
     dir: [],
@@ -79,8 +88,13 @@ app.post('/copy', async(req, res) => {
   const fromPath = req.body.from;
   const toPath = req.body.to;
   const files = req.body.files;
+
   new Promise ((resolve, reject) => {
     for (let i = 0; i < files.length; i++) {
+      if (fs.lstatSync(`${fromPath}/${files[i]}`).isDirectory()) {
+        res.json(logError({}, 'Пока что папки нельзя копировать'));
+        return;
+      }
       fs.access(`${toPath}/${files[i]}`, async(err) => {
         if (err) {
           fs.copyFile(`${fromPath}/${files[i]}`, `${toPath}/${files[i]}`, err => {
