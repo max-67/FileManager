@@ -66,6 +66,10 @@
             from: this.from_path,
             to: this.current_path,
             files: this.markedFiles
+          }).then((result) => {
+            if (result.data.error) {
+              alert(result.data.errormessage);
+            }
           });
         }
         this.buttonPaste.disabled = true;
